@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkpoint & Rollback Recovery Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Checkpoint and Rollback Recovery (DB Simulation)</h1>
+  <div class="controls">
+    <button onclick="startTransaction('T1')">Start T1</button>
+    <button onclick="startTransaction('T2')">Start T2</button>
+    <button onclick="write('T1','X')">T1: Write X</button>
+    <button onclick="write('T2','Y')">T2: Write Y</button>
+    <button onclick="checkpoint()">Checkpoint</button>
+    <button onclick="crash()">Crash</button>
+    <button onclick="recover()">Recover</button>
+  </div>
+
+  <h3>Log</h3>
+  <div id="log"></div>
+
+  <h3>Database State</h3>
+  <div id="dbstate">
+    <div class="varbox">X: <span id="xval">0</span></div>
+    <div class="varbox">Y: <span id="yval">0</span></div>
+  </div>
+
+  <footer>Simulates write-ahead logging, checkpointing, and rollback recovery.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
